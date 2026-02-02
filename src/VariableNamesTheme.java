@@ -108,7 +108,7 @@ public class VariableNamesTheme {
 
         // Путь до файла
         String filePath = "/Users/username/Documents/file.javaс";
-        System.out.println("Пусть до файла = " + filePath);
+        System.out.println("Путь до файла = " + filePath);
 
         // Количество чисел в строке 
         int lineNumbersCount = num;
@@ -126,7 +126,7 @@ public class VariableNamesTheme {
 
         // Есть равные цифры? 
         boolean hasEqualDigits = true;
-        System.out.println("Есть ранвые цифры? = " + hasEqualDigits);
+        System.out.println("Есть равные цифры? = " + hasEqualDigits);
 
         // Служба создана? 
         boolean isCreatedService = false;
@@ -141,8 +141,8 @@ public class VariableNamesTheme {
         System.out.println("Соединение активное? = " + isActiveConnection);
 
         // Новый? 
-        boolean New = true;
-        System.out.println("Новый? = " + New);
+        boolean isNew = true;
+        System.out.println("Новый? = " + isNew);
 
         // Электронная почта действительна? 
         boolean isValidEmail = true;
@@ -169,7 +169,7 @@ public class VariableNamesTheme {
 
         // Определение термина протокола передачи гипертекста
         String httpTermDefinition = "HyperText Transfer Protocol";
-        System.out.println("Определение термина протокола передачи гипертекста = " + httpTermDefinition);
+        System.out.println("Определение HTTP = " + httpTermDefinition);
 
         // Cокращенный uniform resource locator
         String abbreviatedUrl= "URL";
