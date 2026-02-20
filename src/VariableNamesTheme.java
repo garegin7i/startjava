@@ -181,6 +181,7 @@ public class VariableNamesTheme {
         // Количество символов в american standard code for information interchange
         String ascii = "american standard code for information interchange";
         int asciiCharactersCount = ascii.length();
-        System.out.println("Количество символов в american standard code for information interchange = " + asciiCharactersCount);
+        System.out.println("Количество символов в american standard code for information interchange = " +
+                asciiCharactersCount);
     }
 }

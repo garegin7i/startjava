@@ -63,17 +63,20 @@ public class VariablesTheme {
         int num3 = num1;
         num1 = num2;
         num2 = num3;
-        System.out.println("Метод: третья переменная" + "\n" + "Результат: A1 = " + num1 + ", B1 = " + num2 + "\n");
+        System.out.println("Метод: третья переменная" + "\n" +
+                "Результат: A1 = " + num1 + ", B1 = " + num2 + "\n");
 
         num1 += num2;
         num2 = num1 - num2;
         num1 -= num2;
-        System.out.println("Метод: арифметические операции" + "\n" + "Результат: A1 = " + num1 + ", B1 = " + num2 + "\n");
+        System.out.println("Метод: арифметические операции" + "\n" +
+                "Результат: A1 = " + num1 + ", B1 = " + num2 + "\n");
 
         num1 ^= num2;
         num2 ^= num1;
         num1 ^= num2;
-        System.out.println("Метод: побитовые операции" + "\n" + "Результат: A1 = " + num1 + ", B1 = " + num2 + "\n");
+        System.out.println("Метод: побитовые операции" + "\n" +
+                "Результат: A1 = " + num1 + ", B1 = " + num2 + "\n");
 
         System.out.println("4. ДЕКОДИРОВАНИЕ СООБЩЕНИЯ");
 
@@ -171,7 +174,8 @@ public class VariablesTheme {
         System.out.printf("%1s%28s%6.1f%5s%3s%n", "Выделенная память", "|", totalMemory, "|", "МБ");
         System.out.printf("%1s%29s%6.1f%5s%3s%n", "Свободная память", "|", freeMemory, "|", "МБ");
         System.out.printf("%1s%26s%4.1f%7s%3s%n", "Используемая память", "|", usedMemory, "|", "МБ");
-        System.out.printf("%1s%3s%7.1f%4s%3s%n\n", "Максимально доступная для выделения память", "|", maxMemory, "|", "МБ");
+        System.out.printf("%1s%3s%7.1f%4s%3s%n\n",
+                "Максимально доступная для выделения память", "|", maxMemory, "|", "МБ");
 
         System.out.printf("%28s%n", "Параметры ОС");
         System.out.printf("%1s%n", "----------------------------------------");
