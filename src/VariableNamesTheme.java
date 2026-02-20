@@ -15,11 +15,11 @@ public class VariableNamesTheme {
         System.out.println("Произведение цифр = " + numMultiplication);
 
         // Максимальное число 
-        int maxNum = Integer.MAX_VALUE; 
+        int maxNum = Integer.MAX_VALUE;
         System.out.println("Максимальное число = " + maxNum);
 
         // Количество десятков
-        int tenCount = num / 10; 
+        int tenCount = num / 10;
         System.out.println("Количество десятков = " + tenCount);
 
         // Вес собаки
@@ -35,7 +35,7 @@ public class VariableNamesTheme {
         System.out.println("Процент по вкладу = " + depositPercent);
 
         // Символ &
-        char ampersandSymbol = '\u0026';
+        char ampersandSymbol = '&';
         System.out.println("Символ & = " + ampersandSymbol);
 
         // Код ошибки
@@ -91,8 +91,8 @@ public class VariableNamesTheme {
         System.out.println("Имя работника месяца = " + monthEmployeeName);
 
         // Название электронной книги
-        String eBookName = "Гарри Поттер";
-        System.out.println("Название электронной книги = " + eBookName);
+        String elBookName = "Гарри Поттер";
+        System.out.println("Название электронной книги = " + elBookName);
 
         // Размер
         int size = 48;
@@ -152,7 +152,6 @@ public class VariableNamesTheme {
         boolean hasUniqueLines = false;
         System.out.println("Имеются уникальные строки? = " + hasUniqueLines);
 
-
         System.out.println("\n 3. АББРЕВИАТУРЫ");
 
         // Старый universally unique identifier
@@ -171,8 +170,8 @@ public class VariableNamesTheme {
         String httpTermDefinition = "HyperText Transfer Protocol";
         System.out.println("Определение HTTP = " + httpTermDefinition);
 
-        // Cокращенный uniform resource locator
-        String abbreviatedUrl= "URL";
+        // Сокр. uniform resource locator
+        String abbreviatedUrl = "URL";
         System.out.println("Cокращенный uniform resource locator = " + abbreviatedUrl);
 
         // Новый идентификатор клиента
@@ -183,6 +182,5 @@ public class VariableNamesTheme {
         String ascii = "american standard code for information interchange";
         int asciiCharactersCount = ascii.length();
         System.out.println("Количество символов в american standard code for information interchange = " + asciiCharactersCount);
-
     }
 }

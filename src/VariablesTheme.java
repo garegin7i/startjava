@@ -6,27 +6,27 @@ import java.time.format.DateTimeFormatter;
 public class VariablesTheme {
     private static final double BYTES_TO_MB = 1_000_000.0;
     private static final double NANOS_TO_SECONDS = 1_000_000_000.0;
+
     public static void main(String[] args) {
-        LocalTime startTime = LocalTime.now();
-        double startTestTime = System.nanoTime();
+        final LocalTime startTime = LocalTime.now();
+        final double startTestTime = System.nanoTime();
 
         System.out.println("1. ВЫВОД ASCII-ГРАФИКИ");
 
-        String strJoinJava = String.join(" ", "                      /\\\n", 
-        "   J    a  v     v  /  \\\n", 
-        "   J   a a  v   v  /_( )\\\n",
-        "J  J  aaaaa  V V  /      \\\n",
-        " JJ  a     a  V  /___/\\___\\\n");
+        String strJoinJava = String.join(" ", "                      /\\\n",
+                "   J    a  v     v  /  \\\n",
+                "   J   a a  v   v  /_( )\\\n",
+                "J  J  aaaaa  V V  /      \\\n",
+                " JJ  a     a  V  /___/\\___\\\n");
 
         System.out.println(strJoinJava + "\n");
 
         String textBlock = """
-                  /\\         
+                  /\\
             J    /  \\  v     v  a
             J   /_( )\\  v   v  a a
          J  J  /      \\  V V  aaaaa
-          JJ  /___/\\___\\  V  a     a
-                """;
+          JJ  /___/\\___\\  V  a     a""";
 
         System.out.println(textBlock + "\n");
 
@@ -47,11 +47,11 @@ public class VariablesTheme {
         BigDecimal bookPriceBd = new BigDecimal("235.23");
         BigDecimal discountBd = new BigDecimal("0.11");
         BigDecimal sumPriceBd = penPriceBd.add(bookPriceBd).setScale(2, RoundingMode.HALF_UP);
-        BigDecimal sumDiscBD = sumPriceBd.multiply(discountBd).setScale(2, RoundingMode.HALF_UP);
-        BigDecimal sumDiscPriceBd = sumPriceBd.subtract(sumDiscBD).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal sumDiscBd = sumPriceBd.multiply(discountBd).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal sumDiscPriceBd = sumPriceBd.subtract(sumDiscBd).setScale(2, RoundingMode.HALF_UP);
 
         System.out.println("Стоимость товаров без скидки = " + sumPriceBd);
-        System.out.println("Сумма скидки = " + sumDiscBD);
+        System.out.println("Сумма скидки = " + sumDiscBd);
         System.out.println("Стоимость товаров со скидкой = " + sumDiscPriceBd + "\n");
 
         System.out.println("3. ПЕРЕСТАНОВКА ЗНАЧЕНИЙ ЯЧЕЕК В ТАБЛИЦЕ");
@@ -102,18 +102,18 @@ public class VariablesTheme {
         System.out.println("5. АНАЛИЗ КОДА ТОВАРА");
 
         int goodId = 756;
-        int categoryId = goodId/100;
-        int subCategoryId = (goodId/10) % 70;
+        int categoryId = goodId / 100;
+        int subCategoryId = (goodId / 10) % 70;
         int typeId = goodId % 10;
         int digitsSum = categoryId + subCategoryId + typeId;
-        int digitsMult = categoryId * subCategoryId * typeId;
+        int digitsMulti = categoryId * subCategoryId * typeId;
 
         System.out.printf("%1s%1d%n", "Код товара: ", goodId);
         System.out.printf("%25s%1d%n", "категория товара - ", categoryId);
         System.out.printf("%21s%1d%n", "подкатегория - ", subCategoryId);
         System.out.printf("%21s%1d%n", "тип упаковки - ", typeId);
         System.out.printf("%1s%1d%n", "Контрольная сумма = ", digitsSum);
-        System.out.printf("%1s%1d%n\n", "Проверочный код = ", digitsMult);
+        System.out.printf("%1s%1d%n\n", "Проверочный код = ", digitsMulti);
 
         System.out.println("6. ТЕСТИРОВАНИЕ ДАТЧИКОВ ПЕРЕД ЗАПУСКОМ РАКЕТЫ");
         
@@ -134,9 +134,9 @@ public class VariablesTheme {
         System.out.printf("%5s%6d%n\n", "-1:", --maxShort);
 
         System.out.printf("%1s%n", "[Код состояния системы]:");
-        System.out.printf("%11s%6d%n", "Исходное:", (int)maxChar);
-        System.out.printf("%5s%2d%n", "+1:", (int)++maxChar);
-        System.out.printf("%5s%6d%n\n", "-1:", (int)--maxChar);
+        System.out.printf("%11s%6d%n", "Исходное:", (int) maxChar);
+        System.out.printf("%5s%2d%n", "+1:", (int) ++maxChar);
+        System.out.printf("%5s%6d%n\n", "-1:", (int) --maxChar);
 
         System.out.printf("%1s%n", "[Пройденное расстояние, м]:");
         System.out.printf("%11s%11d%n", "Исходное:", maxInt);
@@ -153,10 +153,10 @@ public class VariablesTheme {
         Runtime rt = Runtime.getRuntime();
         
         int availableCores = rt.availableProcessors();
-        double TotalMemory = rt.totalMemory()/BYTES_TO_MB;
-        double FreeMemory = rt.freeMemory()/BYTES_TO_MB;
-        double UsedMemory = (rt.totalMemory() - rt.freeMemory())/BYTES_TO_MB;
-        double MaxMemory = rt.maxMemory()/BYTES_TO_MB;
+        double totalMemory = rt.totalMemory() / BYTES_TO_MB;
+        double freeMemory = rt.freeMemory() / BYTES_TO_MB;
+        double usedMemory = (rt.totalMemory() - rt.freeMemory()) / BYTES_TO_MB;
+        double maxMemory = rt.maxMemory() / BYTES_TO_MB;
 
         String systemDisk = System.getProperty("user.home");
         String osVersion = System.getProperty("os.version");
@@ -168,10 +168,10 @@ public class VariablesTheme {
         System.out.printf("%1s%37s%9s%2s%9s%n", "Описание", "|", "Значение", "|", "Ед. изм.");
         System.out.printf("%1s%n", "-----------------------------------------------------------------");
         System.out.printf("%1s%25s%3d%8s%3s%n", "Доступное число ядер", "|", availableCores, "|", "шт");
-        System.out.printf("%1s%28s%6.1f%5s%3s%n", "Выделенная память", "|", TotalMemory, "|", "МБ");
-        System.out.printf("%1s%29s%6.1f%5s%3s%n", "Свободная память", "|", FreeMemory, "|", "МБ");
-        System.out.printf("%1s%26s%4.1f%7s%3s%n", "Используемая память", "|", UsedMemory, "|", "МБ");
-        System.out.printf("%1s%3s%7.1f%4s%3s%n\n", "Максимально доступная для выделения память", "|", MaxMemory, "|", "МБ");
+        System.out.printf("%1s%28s%6.1f%5s%3s%n", "Выделенная память", "|", totalMemory, "|", "МБ");
+        System.out.printf("%1s%29s%6.1f%5s%3s%n", "Свободная память", "|", freeMemory, "|", "МБ");
+        System.out.printf("%1s%26s%4.1f%7s%3s%n", "Используемая память", "|", usedMemory, "|", "МБ");
+        System.out.printf("%1s%3s%7.1f%4s%3s%n\n", "Максимально доступная для выделения память", "|", maxMemory, "|", "МБ");
 
         System.out.printf("%28s%n", "Параметры ОС");
         System.out.printf("%1s%n", "----------------------------------------");
@@ -189,7 +189,7 @@ public class VariablesTheme {
         double finishTestTime = System.nanoTime();
         LocalTime endTime = LocalTime.now();
 
-        double endTest = (finishTestTime - startTestTime)/NANOS_TO_SECONDS;
+        double endTest = (finishTestTime - startTestTime) / NANOS_TO_SECONDS;
 
         System.out.println("""
                 | Cтарт проверки | %s |
@@ -198,7 +198,5 @@ public class VariablesTheme {
                 + -------------- + ------------ +
                 | Время работы   | %.3f %8s
                 """.formatted(formater.format(startTime), formater.format(endTime), endTest, "|"));
-
-
     }
 }
