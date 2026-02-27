@@ -4,7 +4,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class VariablesTheme {
-    private static final double BYTES_TO_MB = 1_000_000.0;
+    private static final double BYTES_IN_MB = 1_000_000.0;
     private static final double NANOS_TO_SECONDS = 1_000_000_000.0;
 
     @SuppressWarnings("checkstyle:Indentation")
@@ -22,11 +22,13 @@ public class VariablesTheme {
                 " JJ  a     a  V  /___/\\___\\\n"));
 
         System.out.println("""
-                  /\\
-            J    /  \\  v     v  a
-            J   /_( )\\  v   v  a a
-         J  J  /      \\  V V  aaaaa
-          JJ  /___/\\___\\  V  a     a""");
+                          /\\
+                    J    /  \\  v     v  a
+                    J   /_( )\\  v   v  a a
+                 J  J  /      \\  V V  aaaaa
+                  JJ  /___/\\___\\  V  a     a""");
+
+        System.out.println();
 
         System.out.println("2. РАСЧЕТ СТОИМОСТИ ТОВАРА");
 
@@ -44,13 +46,13 @@ public class VariablesTheme {
         BigDecimal penPriceBd = new BigDecimal("105.5");
         BigDecimal bookPriceBd = new BigDecimal("235.23");
         BigDecimal discountBd = new BigDecimal("0.11");
-        BigDecimal sumPriceBd = penPriceBd.add(bookPriceBd).setScale(2, RoundingMode.HALF_UP);
-        BigDecimal sumDiscBd = sumPriceBd.multiply(discountBd).setScale(2, RoundingMode.HALF_UP);
-        BigDecimal sumDiscPriceBd = sumPriceBd.subtract(sumDiscBd).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal basePriceBd = penPriceBd.add(bookPriceBd).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal discountSumBd = basePriceBd.multiply(discountBd).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal discountPriceBd = basePriceBd.subtract(discountSumBd).setScale(2, RoundingMode.HALF_UP);
 
-        System.out.println("Стоимость товаров без скидки = " + sumPriceBd);
-        System.out.println("Сумма скидки = " + sumDiscBd);
-        System.out.println("Стоимость товаров со скидкой = " + sumDiscPriceBd + "\n");
+        System.out.println("Стоимость товаров без скидки = " + discountSumBd);
+        System.out.println("Сумма скидки = " + discountSumBd);
+        System.out.println("Стоимость товаров со скидкой = " + discountPriceBd + "\n");
 
         System.out.println("3. ПЕРЕСТАНОВКА ЗНАЧЕНИЙ ЯЧЕЕК В ТАБЛИЦЕ");
 
@@ -86,12 +88,13 @@ public class VariablesTheme {
         int code6 = 1090;
 
         System.out.printf("%-4s%2s%7s%n", "Код", "|", "Символ");
-        System.out.printf("%-4s%2s%2c%n", code1, "|", 1055);
-        System.out.printf("%-4s%2s%2c%n", code2, "|", 1088);
-        System.out.printf("%-4s%2s%2c%n", code3, "|", 1080);
-        System.out.printf("%-4s%2s%2c%n", code4, "|", 1074);
-        System.out.printf("%-4s%2s%2c%n", code5, "|", 1077);
-        System.out.printf("%-4s%2s%2c%n\n", code6, "|", 1090);
+        System.out.printf("%-4s%2s%2c%n", code1, "|", code1);
+        System.out.printf("%-4s%2s%2c%n", code2, "|", code2);
+        System.out.printf("%-4s%2s%2c%n", code3, "|", code3);
+        System.out.printf("%-4s%2s%2c%n", code4, "|", code4);
+        System.out.printf("%-4s%2s%2c%n", code5, "|", code5);
+        System.out.printf("%-4s%2s%2c%n", code6, "|", code6);
+        System.out.println();
 
         System.out.println("5. АНАЛИЗ КОДА ТОВАРА");
 
@@ -102,81 +105,73 @@ public class VariablesTheme {
         int checkSum = categoryId + subCategoryId + typeId;
         int verificationCode = categoryId * subCategoryId * typeId;
 
-        System.out.printf("%1s%1d%n", "Код товара: ", goodId);
-        System.out.printf("%25s%1d%n", "категория товара - ", categoryId);
-        System.out.printf("%21s%1d%n", "подкатегория - ", subCategoryId);
-        System.out.printf("%21s%1d%n", "тип упаковки - ", typeId);
-        System.out.printf("%1s%1d%n", "Контрольная сумма = ", checkSum);
-        System.out.printf("%1s%1d%n\n", "Проверочный код = ", verificationCode);
+        System.out.printf("""
+                Код товара: %d
+                  категория товара - %d
+                  подкатегория - %d
+                  тип упаковки - %d
+                Контрольная сумма = %d
+                Проверочный код = %d%n%n""", goodId, categoryId, subCategoryId, typeId,
+                checkSum, verificationCode);
 
         System.out.println("6. ТЕСТИРОВАНИЕ ДАТЧИКОВ ПЕРЕД ЗАПУСКОМ РАКЕТЫ");
         
-        byte maxByte = Byte.MAX_VALUE;
-        System.out.println("""
+        byte temperatureDeg = Byte.MAX_VALUE;
+        System.out.printf("""
                 [Температура, °C]:
-                   Исходное:\s""" + maxByte +
-                """
-                        \n   +1:\s""" + ++maxByte +
-                """
-                        \n   -1:\s""" + --maxByte);
+                  Исходное: %d
+                  +1: %d
+                  -1: %d%n%n""", temperatureDeg, ++temperatureDeg, --temperatureDeg);
 
-        short maxShort = Short.MAX_VALUE;
-        System.out.println("""
-                \n[Давление, Па]]:
-                   Исходное:\s""" + maxShort +
-                """
-                        \n   +1:\s""" + ++maxShort +
-                """
-                        \n   -1:\s""" + --maxShort);
+        short pressurePa = Short.MAX_VALUE;
+        System.out.printf("""
+                [Давление, Па]:
+                  Исходное: %d
+                  +1: %d
+                  -1: %d%n%n""", pressurePa, ++pressurePa, --pressurePa);
 
-        char maxChar = Character.MAX_VALUE;
-        System.out.println("""
-                \n[Код состояния системы]:
-                   Исходное:\s""" + (int) maxChar +
-                """
-                        \n   +1:\s""" + (int) ++maxChar +
-                """
-                        \n   -1:\s""" + (int) --maxChar);
+        char sysStatusCode = Character.MAX_VALUE;
+        System.out.printf("""
+                [Код состояния системы]:
+                  Исходное: %d
+                  +1: %d
+                  -1: %d%n%n""", (int) sysStatusCode, (int) ++sysStatusCode, (int) --sysStatusCode);
 
-        int maxInt = Integer.MAX_VALUE;
-        System.out.println("""
-                \n[Пройденное расстояние, м]:
-                   Исходное:\s""" + maxInt +
-                """
-                        \n   +1:\s""" + ++maxInt +
-                """
-                        \n   -1:\s""" + --maxInt);
+        int travelDistanceMet = Integer.MAX_VALUE;
+        System.out.printf("""
+                [Пройденное расстояние, м]:
+                  Исходное: %d
+                  +1: %d
+                  -1: %d%n%n""", travelDistanceMet, ++travelDistanceMet, --travelDistanceMet);
 
-        long maxLong = Long.MAX_VALUE;
-        System.out.println("""
-                \n[Время с момента старта, с]:
-                   Исходное:\s""" + maxLong +
-                """
-                        \n   +1:\s""" + ++maxLong +
-                """
-                        \n   -1:\s""" + --maxLong + "\n");
+        long launchSinceTimeSec = Long.MAX_VALUE;
+        System.out.printf("""
+                [Время с момента старта, с]:
+                  Исходное: %d
+                  +1: %d
+                  -1: %d%n%n""", launchSinceTimeSec, ++launchSinceTimeSec, --launchSinceTimeSec);
 
         System.out.println("7. ВЫВОД ПАРАМЕТРОВ JVM И ОС");
 
         Runtime rt = Runtime.getRuntime();
         
         int availableCores = rt.availableProcessors();
-        double totalMemory = rt.totalMemory() / BYTES_TO_MB;
-        double freeMemory = rt.freeMemory() / BYTES_TO_MB;
+        double totalMemory = rt.totalMemory() / BYTES_IN_MB;
+        double freeMemory = rt.freeMemory() / BYTES_IN_MB;
         double usedMemory = totalMemory - freeMemory;
-        double maxMemory = rt.maxMemory() / BYTES_TO_MB;
+        double maxMemory = rt.maxMemory() / BYTES_IN_MB;
 
         System.out.printf("""
-                                               Характеристики JVM
-                        ------------------------------------------------------------------
-                                         Описание                  | Ед. изм. | Значение
-                        ------------------------------------------------------------------
-                        Доступное число ядер                       | МБ       | %d
-                        Выделенная память                          | МБ       | %.1f
-                        Свободная память                           | МБ       | %.1f
-                        Используемая память                        | МБ       | %.1f
-                        Максимально доступная для выделения память | МБ       | %.1f \n \n""", availableCores,
-                totalMemory, freeMemory, usedMemory, maxMemory);
+                                       Характеристики JVM
+                ------------------------------------------------------------------
+                                 Описание                  | Ед. изм. | Значение
+                ------------------------------------------------------------------
+                Доступное число ядер                       | МБ       | %d
+                Выделенная память                          | МБ       | %.1f
+                Свободная память                           | МБ       | %.1f
+                Используемая память                        | МБ       | %.1f
+                Максимально доступная для выделения память | МБ       | %.1f%n%n""",
+                availableCores, totalMemory, freeMemory, usedMemory, maxMemory);
 
         String systemDisk = System.getProperty("user.home");
         String osVersion = System.getProperty("os.version");
@@ -191,7 +186,7 @@ public class VariablesTheme {
                 Системный диск          | %s
                 Версия ОС               | %s
                 Версия Java             | %s
-                Символ разделения пути  | %s \n \n""", systemDisk, osVersion, javaVersion, separator);
+                Символ разделения пути  | %s%n%n""", systemDisk, osVersion, javaVersion, separator);
 
         System.out.println("8. ЗАМЕР ВРЕМЕНИ РАБОТЫ КОДА");
 
