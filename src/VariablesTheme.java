@@ -50,7 +50,7 @@ public class VariablesTheme {
         BigDecimal discountSumBd = basePriceBd.multiply(discountBd).setScale(2, RoundingMode.HALF_UP);
         BigDecimal discountPriceBd = basePriceBd.subtract(discountSumBd).setScale(2, RoundingMode.HALF_UP);
 
-        System.out.println("Стоимость товаров без скидки = " + discountSumBd);
+        System.out.println("Стоимость товаров без скидки = " + basePriceBd);
         System.out.println("Сумма скидки = " + discountSumBd);
         System.out.println("Стоимость товаров со скидкой = " + discountPriceBd + "\n");
 
